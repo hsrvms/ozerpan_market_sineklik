@@ -1,0 +1,1378 @@
+{
+  "panjur": [
+    {
+      "id": "dimensions",
+      "name": "Ürün Ölçüleri",
+      "content": {
+        "fields": [
+          {
+            "id": "width",
+            "name": "Genişlik (mm)",
+            "type": "number",
+            "min": 250,
+            "max": 5500,
+            "default": 1000
+          },
+          {
+            "id": "height",
+            "name": "Yükseklik (mm)",
+            "type": "number",
+            "min": 250,
+            "max": 4000,
+            "default": 1000
+          }
+        ],
+        "preview": {
+          "type": "shutter",
+          "component": "ShutterPreview"
+        }
+      }
+    },
+    {
+      "id": "divisions",
+      "name": "Bölme Ayarları",
+      "content": {
+        "fields": [
+          {
+            "id": "kutuOlcuAlmaSekli",
+            "name": "Kutu Ölçü Alma Şekli",
+            "type": "select",
+            "options": [
+              { "id": "kutu_dahil", "name": "Kutu Dahil" },
+              { "id": "kutu_haric", "name": "Kutu Hariç" }
+            ],
+            "default": "kutu_dahil"
+          },
+          {
+            "id": "dikmeOlcuAlmaSekli",
+            "name": "Dikme Ölçü Alma Şekli",
+            "type": "select",
+            "options": [
+              { "id": "dikme_dahil", "name": "Dikme Dahil" },
+              { "id": "dikme_haric", "name": "Dikme Hariç" },
+              { "id": "tek_dikme", "name": "Tek Dikme" }
+            ],
+            "default": "dikme_dahil"
+          },
+          {
+            "id": "hareketBaglanti",
+            "name": "Hareket Bağlantı Noktası",
+            "type": "select",
+            "options": [
+              { "id": "sol", "name": "Sol" },
+              { "id": "sag", "name": "Sağ" }
+            ],
+            "default": "sol"
+          }
+        ]
+      }
+    },
+    {
+      "id": "movement",
+      "name": "Hareket Şekli",
+      "content": {
+        "fields": [
+          {
+            "id": "movementType",
+            "name": "Hareket Tipi",
+            "type": "select",
+            "options": [
+              {
+                "id": "manuel",
+                "name": "Manuel"
+              },
+              { "id": "motorlu", "name": "Motorlu" }
+            ],
+            "default": "manuel"
+          },
+          {
+            "id": "manuelSekli",
+            "name": "Manuel Şekli",
+            "type": "select",
+            "options": [
+              {
+                "id": "makarali",
+                "name": "Makaralı",
+                "image": "/images/products/panjur/movement-type/manual/manuel_makarali.png"
+              },
+              {
+                "id": "reduktorlu",
+                "name": "Redüktörlü",
+                "image": "/images/products/panjur/movement-type/manual/manuel_reduktorlu.png"
+              }
+            ],
+            "default": "makarali",
+            "dependsOn": {
+              "field": "movementType",
+              "value": "manuel"
+            }
+          },
+          {
+            "id": "makaraliTip",
+            "name": "Makas Seçeneği",
+            "type": "select",
+            "options": [
+              { "id": "makassiz", "name": "Makassız" },
+              {
+                "id": "makasli",
+                "name": "Makaslı",
+                "image": "/images/products/panjur/makas/makas.png"
+              }
+            ],
+            "default": "makassiz",
+            "dependsOn": {
+              "field": "manuelSekli",
+              "value": "makarali"
+            }
+          },
+          {
+            "id": "motorMarka",
+            "name": "Motor Markası",
+            "type": "select",
+            "options": [
+              {
+                "id": "mosel",
+                "name": "Mosel",
+                "image": "/images/products/panjur/motor-brand/mosel_motor.png"
+              },
+              {
+                "id": "somfy",
+                "name": "Somfy",
+                "image": "/images/products/panjur/motor-brand/somfy_motor.png"
+              }
+            ],
+            "default": "mosel",
+            "dependsOn": {
+              "field": "movementType",
+              "value": "motorlu"
+            }
+          },
+          {
+            "id": "motorSekli",
+            "name": "Motor Şekli",
+            "type": "select",
+            "options": [
+              {
+                "id": "duz_motorlu",
+                "name": "Düz Motorlu (Butonlu)",
+                "image": "/images/products/panjur/motor-type/düz motorlu butonlu.png"
+              },
+              {
+                "id": "alicili_motorlu",
+                "name": "Alıcılı Motorlu (Kumandalı)",
+                "image": "/images/products/panjur/motor-type/alıcılı motorlu kumandalı.png"
+              },
+              {
+                "id": "alicili_motorlu_reduktorlu",
+                "name": "Alıcılı Motorlu (Redüktörlü)",
+                "image": "/images/products/panjur/motor-type/alıcılı motorlu redüktörlü.png"
+              },
+              {
+                "id": "alicili_motorlu_geri_bildirimli",
+                "name": "Alıcılı Geri Bildirimli Motor",
+                "image": "/images/products/panjur/motor-type/alıcılı geri bildirimli motor.png"
+              },
+              {
+                "id": "alicili_motorlu_geri_bildirimli_engel",
+                "name": "Alıcılı Geri Bildirimli Engel Tanımalı Motor",
+                "image": "/images/products/panjur/motor-type/alıcılı geri bildirimli engel tanımalı motor.png"
+              },
+              {
+                "id": "solar_panelli",
+                "name": "Solar Panelli Alıcılı Motor",
+                "image": "/images/products/panjur/motor-type/solar panelli alıcılı motor.png"
+              }
+            ],
+            "filterBy": {
+              "field": "motorMarka",
+              "valueMap": {
+                "mosel": [
+                  "duz_motorlu",
+                  "alicili_motorlu",
+                  "alicili_motorlu_reduktorlu",
+                  "solar_panelli"
+                ],
+                "somfy": [
+                  "duz_motorlu",
+                  "alicili_motorlu",
+                  "alicili_motorlu_reduktorlu",
+                  "solar_panelli",
+                  "alicili_motorlu_geri_bildirimli",
+                  "alicili_motorlu_geri_bildirimli_engel"
+                ]
+              }
+            },
+            "default": "duz_motorlu",
+            "dependsOn": {
+              "field": "movementType",
+              "value": "motorlu"
+            }
+          },
+
+          {
+            "id": "motorModel",
+            "name": "Motor Modeli",
+            "type": "select",
+            "options": [
+              {
+                "id": "sel_60-20",
+                "name": "Mosel 60-20",
+                "image": "/images/products/panjur/motor-model/Mosel 60-20.png"
+              },
+              {
+                "id": "sel_60-30",
+                "name": "Mosel 60-30",
+                "image": "/images/products/panjur/motor-model/Mosel 60-30.png"
+              },
+              {
+                "id": "sel_60-50",
+                "name": "Mosel 60-50",
+                "image": "/images/products/panjur/motor-model/Mosel 60-50.png"
+              },
+              {
+                "id": "boost_15",
+                "name": "Boost 15",
+                "image": "/images/products/panjur/motor-model/Boost15.png"
+              },
+              {
+                "id": "boost_35",
+                "name": "Boost 35",
+                "image": "/images/products/panjur/motor-model/Boost35.png"
+              },
+              {
+                "id": "boost_55",
+                "name": "Boost 55",
+                "image": "/images/products/panjur/motor-model/Boost55.png"
+              }
+            ],
+            "filterBy": {
+              "field": "motorMarka",
+              "valueMap": {
+                "mosel": ["sel_60-20", "sel_60-30", "sel_60-50"],
+                "somfy": ["boost_15", "boost_35", "boost_55"]
+              }
+            },
+            "default": "sel_60-20",
+            "dependsOn": {
+              "field": "movementType",
+              "value": "motorlu"
+            }
+          },
+          {
+            "id": "buton",
+            "name": "Buton",
+            "type": "select",
+            "options": [
+              { "id": "yok", "name": "Yok" },
+              {
+                "id": "alicili-buton",
+                "name": "Alıcılı Buton",
+                "image": "/images/products/panjur/button/butonlu.png"
+              }
+            ],
+            "default": "yok",
+            "dependsOn": {
+              "field": "movementType",
+              "value": "motorlu"
+            }
+          },
+          {
+            "id": "receiver",
+            "name": "Alıcı",
+            "type": "select",
+            "options": [
+              { "id": "yok", "name": "Yok" },
+              {
+                "id": "dc_318_tek_kanalli_vera_ankastre_alici",
+                "name": "DC 318 Tek Kanallı Vera Ankastre Alıcı"
+              },
+              {
+                "id": "dc_319_iki_kanalli_vera_ankastre_alici",
+                "name": "DC 319 İki Kanallı Vera Ankastre Alıcı"
+              },
+              {
+                "id": "mosel_dc-74_kutu_ici_panjur_alicisi",
+                "name": "Mosel DC-74 Kutu İçi Panjur Alıcısı",
+                "image": "/images/products/panjur/receiver/Mosel DC-73A Kutu İçi Panjur Alıcısı.png"
+              },
+              {
+                "id": "pf_receiver_rts_panjur_alicisi",
+                "name": "PF RECEIVER RTS Panjur Alıcısı",
+                "image": "/images/products/panjur/receiver/PF RECEIVER RTS Panjur Alıcısı.png"
+              },
+              {
+                "id": "centralis_uno_rts_buton_alici",
+                "name": "Centralis Uno RTS Buton Alıcı"
+              },
+              {
+                "id": "mosel_oval_power_ii_alici",
+                "name": "Mosel Oval Power II Alıcı + 2 -4 Kanallı Verici",
+                "image": "/images/products/panjur/receiver/Mosel Oval Power II Alıcı + 2 -4 Kanallı Verici.png"
+              }
+            ],
+            "default": "yok",
+            "filterBy": [
+              {
+                "field": "motorMarka",
+                "valueMap": {
+                  "mosel": [
+                    "yok",
+                    "dc_318_tek_kanalli_vera_ankastre_alici",
+                    "dc_319_iki_kanalli_vera_ankastre_alici",
+                    "mosel_dc-74_kutu_ici_panjur_alicisi",
+                    "mosel_oval_power_ii_alici"
+                  ],
+                  "somfy": [
+                    "yok",
+                    "pf_receiver_rts_panjur_alicisi",
+                    "centralis_uno_rts_buton_alici"
+                  ]
+                }
+              },
+              {
+                "field": "motorSekli",
+                "valueMap": {
+                  "duz_motorlu": [
+                    "yok",
+                    "dc_318_tek_kanalli_vera_ankastre_alici",
+                    "dc_319_iki_kanalli_vera_ankastre_alici",
+                    "mosel_dc-74_kutu_ici_panjur_alicisi",
+                    "pf_receiver_rts_panjur_alicisi",
+                    "centralis_uno_rts_buton_alici",
+                    "mosel_oval_power_ii_alici"
+                  ],
+                  "alicili_motorlu_reduktorlu": [
+                    "yok",
+                    "mosel_oval_power_ii_alici"
+                  ]
+                }
+              }
+            ],
+            "dependsOn": {
+              "field": "motorSekli",
+              "value": [
+                "duz_motorlu",
+                "alicili_motorlu",
+                "alicili_motorlu_reduktorlu",
+                "alicili_motorlu_geri_bildirimli",
+                "alicili_motorlu_geri_bildirimli_engel",
+                "solar_panelli"
+              ]
+            }
+          },
+          {
+            "id": "remote",
+            "name": "Kumanda",
+            "type": "select",
+            "options": [
+              { "id": "yok", "name": "Yok" },
+              {
+                "id": "dc_104_1_kanalli",
+                "name": "DC 104 1 Kanallı",
+                "image": "/images/products/panjur/remote/DC 104 Tek Kanallı.png"
+              },
+              {
+                "id": "dc_105_5_kanalli",
+                "name": "DC 105 5 Kanallı",
+                "image": "/images/products/panjur/remote/DC 105 4+1 Kanallı.png"
+              },
+              {
+                "id": "dc_106_10_kanalli_verici",
+                "name": "DC 106 10 Kanallı Verici",
+                "image": "/images/products/panjur/remote/DC 106 10 Kanallı Verici.png"
+              },
+              {
+                "id": "dc_107_16_kanalli_verici",
+                "name": "DC 107 16 Kanallı Verici",
+                "image": "/images/products/panjur/remote/DC 107 16 Kanallı Verici.png"
+              },
+              {
+                "id": "dc_315_1_kanalli_buton_tipi_verici",
+                "name": "DC 315 1 Kanallı Buton Tipi Verici",
+                "image": "/images/products/panjur/remote/DC 315 1 Kanallı Buton Tipi Verici.png"
+              },
+              {
+                "id": "dc_316_2_kanalli_buton_tipi_verici",
+                "name": "DC 316 2 Kanallı Buton Tipi Verici",
+                "image": "/images/products/panjur/remote/DC 316 2 Kanallı Buton Tipi Verici.png"
+              },
+              {
+                "id": "dc_317_16_kanalli_buton_tipi_verici",
+                "name": "DC 317 16 Kanallı Buton Tipi Verici",
+                "image": "/images/products/panjur/remote/DC 317 16 Kanallı Buton Tipi Verici.png"
+              },
+              {
+                "id": "dc_168_1_kanalli_zaman_ayarli_verici",
+                "name": "DC 168 1 Kanallı Zaman Ayarlı Verici",
+                "image": "/images/products/panjur/remote/DC 168 1 Kanallı Zaman Ayarlı Verici.png"
+              },
+              {
+                "id": "dc_169_16_kanalli_zaman_ayarli_verici",
+                "name": "DC 169 16 Kanallı Zaman Ayarlı Verici",
+                "image": "/images/products/panjur/remote/DC 169 16 Kanallı Zaman Ayarlı Verici.png"
+              },
+              {
+                "id": "dd_3000h_bi_direction_elektronik_tekli_verici",
+                "name": "DD 3000H Bi-Direction Elektronik Tekli Verici",
+                "image": "/images/products/panjur/remote/DD 3000H.png"
+              },
+              {
+                "id": "dd_3001h_bi_direction_elektronik_5_1_verici",
+                "name": "DD 3001H Bi-Direction Elektronik 5+1 Verici",
+                "image": "/images/products/panjur/remote/DD 3001H.png"
+              },
+              {
+                "id": "dd_3002h_bi_direction_elektronik_15_1_verici",
+                "name": "DD 3002H Bi-Direction Elektronik 15+1 Verici",
+                "image": "/images/products/panjur/remote/DD 3002H.png"
+              },
+              {
+                "id": "situo_1_io_pure_ii_sea_mea",
+                "name": "Situo 1 IO Pure II SEA MEA",
+                "image": "/images/products/panjur/remote/Situo 1 IO Pure II SEA MEA.png"
+              },
+              {
+                "id": "situo_1_rts_pure_ii",
+                "name": "Situo 1 RTS Pure II",
+                "image": "/images/products/panjur/remote/Situo 1 RTS Pure II.png"
+              },
+              {
+                "id": "situo_5_io_pure_ii_sea_mea",
+                "name": "Situo 5 IO Pure II SEA MEA",
+                "image": "/images/products/panjur/remote/Situo 5 IO Pure II SEA MEA.png"
+              },
+              {
+                "id": "situo_5_rts_pure_ii",
+                "name": "Situo 5 RTS Pure II",
+                "image": "/images/products/panjur/remote/Situo 5 RTS Pure II.png"
+              },
+              {
+                "id": "telis_16_rts_pure",
+                "name": "Telis 16 RTS Pure",
+                "image": "/images/products/panjur/remote/Telis 16 RTS Pure.png"
+              },
+              {
+                "id": "smoove_origin_rts_buton_kumanda",
+                "name": "Smoove Origin RTS Buton Kumanda",
+                "image": "/images/products/panjur/remote/Smoove Origin RTS Buton Kumanda.png"
+              },
+              {
+                "id": "smoove_origin_io_buton_kumanda",
+                "name": "Smoove Origin IO Buton Kumanda",
+                "image": "/images/products/panjur/remote/Smoove Origin IO Buton Kumanda.png"
+              },
+              {
+                "id": "telis_6_chronis_rts_zaman_ayarli_kumanda",
+                "name": "Telis 6 Chronis RTS Zaman Ayarlı Kumanda",
+                "image": "/images/products/panjur/remote/Telis 6 Chronis RTS Zaman Ayarlı Kumanda.png"
+              },
+              {
+                "id": "dc_115_a_1_kanalli_verici",
+                "name": "DC 115 A 1 Kanallı Verici",
+                "image": "/images/products/panjur/remote/DC 115 A 1 Kanallı Verici (Oval Alıcı).png"
+              },
+              {
+                "id": "dc_115_b_4_kanalli_verici",
+                "name": "DC 115 B 4 Kanallı Verici",
+                "image": "/images/products/panjur/remote/DC 115 B 4 Kanallı Verici (Oval Alıcı).png"
+              },
+              {
+                "id": "siva_alti_kalici_buton",
+                "name": "Sıva Altı Kalıcı Buton"
+              },
+              {
+                "id": "siva_ustu_buton_kasasi",
+                "name": "Sıva Üstü Buton Kasası"
+              }
+            ],
+            "default": "yok",
+            "dependsOn": {
+              "field": "motorSekli",
+              "value": [
+                "duz_motorlu",
+                "alicili_motorlu",
+                "alicili_motorlu_reduktorlu",
+                "solar_panelli",
+                "alicili_motorlu_geri_bildirimli",
+                "alicili_motorlu_geri_bildirimli_engel"
+              ]
+            },
+            "filterBy": [
+              {
+                "field": "motorMarka",
+                "valueMap": {
+                  "mosel": [
+                    "yok",
+                    "dc_104_1_kanalli",
+                    "dc_105_5_kanalli",
+                    "dc_106_10_kanalli_verici",
+                    "dc_107_16_kanalli_verici",
+                    "dc_315_1_kanalli_buton_tipi_verici",
+                    "dc_316_2_kanalli_buton_tipi_verici",
+                    "dc_317_16_kanalli_buton_tipi_verici",
+                    "dc_168_1_kanalli_zaman_ayarli_verici",
+                    "dc_169_16_kanalli_zaman_ayarli_verici",
+                    "dd_3000h_bi_direction_elektronik_tekli_verici",
+                    "dd_3001h_bi_direction_elektronik_5_1_verici",
+                    "dd_3002h_bi_direction_elektronik_15_1_verici",
+                    "dc_115_a_1_kanalli_verici",
+                    "dc_115_b_4_kanalli_verici",
+                    "siva_alti_kalici_buton"
+                  ],
+                  "somfy": [
+                    "yok",
+                    "situo_1_io_pure_ii_sea_mea",
+                    "situo_1_rts_pure_ii",
+                    "situo_5_io_pure_ii_sea_mea",
+                    "situo_5_rts_pure_ii",
+                    "telis_16_rts_pure",
+                    "smoove_origin_rts_buton_kumanda",
+                    "smoove_origin_io_buton_kumanda",
+                    "telis_6_chronis_rts_zaman_ayarli_kumanda",
+                    "siva_ustu_buton_kasasi"
+                  ]
+                }
+              },
+              {
+                "field": "motorSekli",
+                "valueMap": {
+                  "alicili_motorlu": [
+                    "yok",
+                    "dc_104_1_kanalli",
+                    "dc_105_5_kanalli",
+                    "dc_106_10_kanalli_verici",
+                    "dc_107_16_kanalli_verici",
+                    "dc_315_1_kanalli_buton_tipi_verici",
+                    "dc_316_2_kanalli_buton_tipi_verici",
+                    "dc_317_16_kanalli_buton_tipi_verici",
+                    "dc_168_1_kanalli_zaman_ayarli_verici",
+                    "dc_169_16_kanalli_zaman_ayarli_verici",
+                    "situo_1_rts_pure_ii",
+                    "situo_5_rts_pure_ii",
+                    "telis_16_rts_pure",
+                    "smoove_origin_rts_buton_kumanda",
+                    "telis_6_chronis_rts_zaman_ayarli_kumanda",
+                    "dc_115_a_1_kanalli_verici",
+                    "dc_115_b_4_kanalli_verici"
+                  ],
+                  "alicili_motorlu_reduktorlu": [
+                    "yok",
+                    "dc_104_1_kanalli",
+                    "dc_105_5_kanalli",
+                    "dc_106_10_kanalli_verici",
+                    "dc_107_16_kanalli_verici",
+                    "dc_315_1_kanalli_buton_tipi_verici",
+                    "dc_316_2_kanalli_buton_tipi_verici",
+                    "dc_317_16_kanalli_buton_tipi_verici",
+                    "dc_168_1_kanalli_zaman_ayarli_verici",
+                    "dc_169_16_kanalli_zaman_ayarli_verici",
+                    "situo_1_rts_pure_ii",
+                    "situo_5_rts_pure_ii",
+                    "telis_16_rts_pure",
+                    "smoove_origin_rts_buton_kumanda",
+                    "telis_6_chronis_rts_zaman_ayarli_kumanda",
+                    "dc_115_a_1_kanalli_verici",
+                    "dc_115_b_4_kanalli_verici"
+                  ],
+                  "solar_panelli": [
+                    "yok",
+                    "dd_3000h_bi_direction_elektronik_tekli_verici",
+                    "dd_3001h_bi_direction_elektronik_5_1_verici",
+                    "dd_3002h_bi_direction_elektronik_15_1_verici"
+                  ],
+                  "alicili_motorlu_geri_bildirimli": [
+                    "yok",
+                    "situo_1_io_pure_ii_sea_mea",
+                    "situo_5_io_pure_ii_sea_mea",
+                    "smoove_origin_io_buton_kumanda"
+                  ],
+                  "alicili_motorlu_geri_bildirimli_engel": [
+                    "yok",
+                    "situo_1_io_pure_ii_sea_mea",
+                    "situo_5_io_pure_ii_sea_mea",
+                    "smoove_origin_io_buton_kumanda"
+                  ],
+                  "duz_motorlu": [
+                    "yok",
+                    "siva_alti_kalici_buton",
+                    "siva_ustu_buton_kasasi"
+                  ]
+                }
+              }
+            ]
+          },
+
+          {
+            "id": "smarthome",
+            "name": "Akıllı Ev Sistemleri",
+            "type": "select",
+            "options": [
+              { "id": "yok", "name": "Yok" },
+              {
+                "id": "mosel_dd_7002_b",
+                "name": "Mosel DD 7002 B",
+                "image": "/images/products/panjur/smart-home/Mosel DD 7002 B.png"
+              },
+              {
+                "id": "somfy_tahoma_switch_pro",
+                "name": "Somfy TAHOMA SWITCH Pro",
+                "image": "/images/products/panjur/smart-home/Somfy Tahoma Switch Pro.png"
+              }
+            ],
+            "default": "yok",
+            "dependsOn": {
+              "field": "motorSekli",
+              "value": [
+                "alicili_motorlu",
+                "alicili_motorlu_reduktorlu",
+                "alicili_motorlu_geri_bildirimli",
+                "alicili_motorlu_geri_bildirimli_engel"
+              ]
+            },
+            "filterBy": [
+              {
+                "field": "motorMarka",
+                "valueMap": {
+                  "mosel": ["yok", "mosel_dd_7002_b"],
+                  "somfy": ["yok", "somfy_tahoma_switch_pro"]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "lamel",
+      "name": "Lamel Seçimi",
+      "content": {
+        "fields": [
+          {
+            "id": "lamelType",
+            "name": "Lamel Tipi",
+            "type": "select",
+            "options": [
+              {
+                "id": "aluminyum_poliuretanli",
+                "name": "Alüminyum Poliüretanlı",
+                "image": "/images/products/panjur/lamel-type/poliüretan_dolgulu.png"
+              },
+              {
+                "id": "aluminyum_ekstruzyon",
+                "name": "Alüminyum Ekstrüzyon",
+                "image": "/images/products/panjur/lamel-type/aluminyum_ekstruzyon.png"
+              }
+            ],
+            "default": "aluminyum_poliuretanli"
+          },
+          {
+            "id": "lamelTickness",
+            "name": "Lamel Kalınlığı",
+            "type": "select",
+            "options": [
+              {
+                "id": "39_sl",
+                "name": "SL 39 MM",
+                "image": "/images/products/panjur/lamel/sl-39.png"
+              },
+              {
+                "id": "45_se",
+                "name": "SE 45 MM",
+                "image": "/images/products/panjur/lamel/se-45.png"
+              },
+              {
+                "id": "55_sl",
+                "name": "SL 55 MM",
+                "image": "/images/products/panjur/lamel/sl-55.png"
+              },
+              {
+                "id": "55_se",
+                "name": "SE 55 MM",
+                "image": "/images/products/panjur/lamel/se-55.png"
+              }
+            ],
+            "filterBy": [
+              {
+                "field": "lamelType",
+                "valueMap": {
+                  "aluminyum_poliuretanli": ["39_sl", "55_sl"],
+                  "aluminyum_ekstruzyon": ["45_se", "55_se"]
+                }
+              },
+              {
+                "field": "customFilter",
+                "properties": {
+                  "39_sl": { "maxWidth": 2300, "maxHeight": 2400 },
+                  "45_se": { "maxWidth": 4250, "maxHeight": 3500 },
+                  "55_sl": { "maxWidth": 3200, "maxHeight": 3100 },
+                  "55_se": { "maxWidth": 5500, "maxHeight": 4000 }
+                }
+              }
+            ],
+            "default": "39_sl"
+          },
+          {
+            "id": "aski_kilit_secimi",
+            "name": "Askı Kilit Seçimi",
+            "type": "select",
+            "options": [
+              { "id": "yok", "name": "Yok" },
+              { "id": "aski_kilit", "name": "Askı Kilit" }
+            ],
+            "default": "yok"
+          }
+        ]
+      }
+    },
+    {
+      "id": "frame",
+      "name": "Çerçeve Seçimi",
+      "content": {
+        "fields": [
+          {
+            "id": "boxType",
+            "name": "Kutu Ölçüsü",
+            "type": "select",
+            "options": [
+              { "id": "137mm", "name": "137MM" },
+              { "id": "165mm", "name": "165MM" },
+              { "id": "205mm", "name": "205MM" },
+              { "id": "250mm", "name": "250MM" }
+            ],
+            "default": "137mm"
+          },
+          {
+            "id": "dikmeType",
+            "name": "Dikme Seçimi",
+            "type": "select",
+            "options": [
+              { "id": "mini_dikme", "name": "Mini Dikme" },
+              { "id": "mini_orta_dikme", "name": "Mini Orta Dikme" },
+              { "id": "midi_dikme", "name": "Midi Dikme" },
+              { "id": "midi_orta_dikme", "name": "Midi Orta Dikme" },
+              { "id": "mini_pvc_dikme", "name": "Mini PVC Dikme" },
+              { "id": "mini_pvc_orta_dikme", "name": "Mini PVC Orta Dikme" },
+              { "id": "midi_pvc_dikme", "name": "Midi PVC Dikme" },
+              { "id": "midi_pvc_orta_dikme", "name": "Midi PVC Orta Dikme" }
+            ],
+            "default": "mini_dikme",
+            "filterBy": [
+              {
+                "field": "lamelTickness",
+                "valueMap": {
+                  "39_sl": [
+                    "mini_dikme",
+                    "mini_orta_dikme",
+                    "mini_pvc_dikme",
+                    "mini_pvc_orta_dikme"
+                  ],
+                  "55_sl": [
+                    "midi_dikme",
+                    "midi_orta_dikme",
+                    "midi_pvc_dikme",
+                    "midi_pvc_orta_dikme"
+                  ],
+                  "45_se": [
+                    "mini_dikme",
+                    "mini_orta_dikme",
+                    "mini_pvc_dikme",
+                    "mini_pvc_orta_dikme"
+                  ],
+                  "55_se": [
+                    "midi_dikme",
+                    "midi_orta_dikme",
+                    "midi_pvc_dikme",
+                    "midi_pvc_orta_dikme"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "id": "dikmeAdapter",
+            "name": "Dikme Adaptörü",
+            "type": "select",
+            "options": [
+              { "id": "yok", "name": "Yok" },
+              { "id": "var", "name": "Var" }
+            ],
+            "default": "yok"
+          },
+          {
+            "id": "subPart",
+            "name": "Alt Parça Seçimi",
+            "type": "select",
+            "options": [
+              { "id": "mini_alt_parca", "name": "Mini Alt Parça" },
+              { "id": "midi_alt_parca", "name": "Midi Alt Parça" },
+              { "id": "kilitli_alt_parca", "name": "Kilitli Alt Parça" }
+            ],
+            "default": "mini_alt_parca",
+            "filterBy": [
+              {
+                "field": "dikmeType",
+                "valueMap": {
+                  "mini_dikme": ["mini_alt_parca", "kilitli_alt_parca"],
+                  "mini_orta_dikme": ["mini_alt_parca", "kilitli_alt_parca"],
+                  "mini_pvc_dikme": ["mini_alt_parca", "kilitli_alt_parca"],
+                  "mini_pvc_orta_dikme": [
+                    "mini_alt_parca",
+                    "kilitli_alt_parca"
+                  ],
+                  "midi_dikme": ["midi_alt_parca", "kilitli_alt_parca"],
+                  "midi_orta_dikme": ["midi_alt_parca", "kilitli_alt_parca"],
+                  "midi_pvc_dikme": ["midi_alt_parca", "kilitli_alt_parca"],
+                  "midi_pvc_orta_dikme": ["midi_alt_parca", "kilitli_alt_parca"]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "color",
+      "name": "Renk Seçimi",
+      "content": {
+        "fields": [
+          {
+            "id": "lamel_color",
+            "name": "Lamel Rengi ",
+            "type": "select",
+            "options": [
+              {
+                "id": "antrasit_gri",
+                "name": "Antrasit Gri",
+                "color": "#4B4B4B"
+              },
+              {
+                "id": "metalik_gri",
+                "name": "Metalik Gri",
+                "color": "#7D7D7D"
+              },
+              { "id": "beyaz", "name": "Beyaz", "color": "#FFFFFF" },
+              { "id": "kahverengi", "name": "Kahverengi", "color": "#7B4B3A" },
+              { "id": "krem", "name": "Krem", "color": "#E6D8C9" },
+              { "id": "vizon", "name": "Vizon", "color": "#A89F91" },
+              { "id": "altın_meşe", "name": "Altın Meşe", "color": "#D1B48C" },
+              { "id": "fındık", "name": "Fındık", "color": "#8B5B29" },
+              { "id": "açık_bej", "name": "Açık Bej", "color": "#F5F5DC" },
+              { "id": "koyu_bej", "name": "Koyu Bej", "color": "#D2B48C" },
+              { "id": "açık_bronz", "name": "Açık Bronz", "color": "#CD853F" },
+              { "id": "kül_siyahı", "name": "Kül Siyahı", "color": "#696969" }
+            ],
+            "default": "antrasit_gri"
+          },
+          {
+            "id": "box_color",
+            "name": "Kutu Rengi ",
+            "type": "select",
+            "options": [
+              {
+                "id": "antrasit_gri",
+                "name": "Antrasit Gri",
+                "color": "#4B4B4B"
+              },
+              {
+                "id": "metalik_gri",
+                "name": "Metalik Gri",
+                "color": "#7D7D7D"
+              },
+              { "id": "beyaz", "name": "Beyaz", "color": "#FFFFFF" },
+              { "id": "kahverengi", "name": "Kahverengi", "color": "#7B4B3A" },
+              { "id": "krem", "name": "Krem", "color": "#E6D8C9" },
+              { "id": "altın_meşe", "name": "Altın Meşe", "color": "#D1B48C" },
+              { "id": "ral_boyalı", "name": "Ral Boyalı", "color": "#FFFFFF" }
+            ],
+            "default": "antrasit_gri"
+          },
+          {
+            "id": "subPart_color",
+            "name": "Alt Parça Rengi ",
+            "type": "select",
+            "options": [
+              {
+                "id": "antrasit_gri",
+                "name": "Antrasit Gri",
+                "color": "#4B4B4B"
+              },
+              {
+                "id": "metalik_gri",
+                "name": "Metalik Gri",
+                "color": "#7D7D7D"
+              },
+              { "id": "beyaz", "name": "Beyaz", "color": "#FFFFFF" },
+              { "id": "kahverengi", "name": "Kahverengi", "color": "#7B4B3A" },
+              { "id": "krem", "name": "Krem", "color": "#E6D8C9" },
+              { "id": "altın_meşe", "name": "Altın Meşe", "color": "#D1B48C" },
+              { "id": "fındık", "name": "Fındık", "color": "#8B5B29" },
+              { "id": "ral_boyalı", "name": "Ral Boyalı", "color": "#FFFFFF" }
+            ],
+            "default": "antrasit_gri"
+          },
+          {
+            "id": "dikme_color",
+            "name": "Dikme Rengi ",
+            "type": "select",
+            "options": [
+              {
+                "id": "antrasit_gri",
+                "name": "Antrasit Gri",
+                "color": "#4B4B4B"
+              },
+              {
+                "id": "metalik_gri",
+                "name": "Metalik Gri",
+                "color": "#7D7D7D"
+              },
+              { "id": "beyaz", "name": "Beyaz", "color": "#FFFFFF" },
+              { "id": "kahverengi", "name": "Kahverengi", "color": "#7B4B3A" },
+              { "id": "krem", "name": "Krem", "color": "#E6D8C9" },
+              { "id": "altın_meşe", "name": "Altın Meşe", "color": "#D1B48C" },
+              { "id": "fındık", "name": "Fındık", "color": "#8B5B29" },
+              { "id": "ral_boyalı", "name": "Ral Boyalı", "color": "#FFFFFF" }
+            ],
+            "default": "antrasit_gri"
+          }
+        ]
+      }
+    }
+  ],
+  "pencere": [
+    {
+      "id": "dimensions",
+      "name": "Pencere Ölçüleri",
+      "content": {
+        "fields": [
+          {
+            "id": "width",
+            "name": "Genişlik (cm)",
+            "type": "number",
+            "min": 300,
+            "max": 3000,
+            "default": 500
+          },
+          {
+            "id": "height",
+            "name": "Yükseklik (cm)",
+            "type": "number",
+            "min": 300,
+            "max": 2500,
+            "default": 500
+          }
+        ],
+        "preview": {
+          "type": "window",
+          "component": "WindowPreview"
+        }
+      }
+    },
+    {
+      "id": "frame",
+      "name": "Çerçeve Seçimi",
+      "content": {
+        "fields": [
+          {
+            "id": "frameType",
+            "name": "Çerçeve Tipi",
+            "type": "radio",
+            "options": [
+              { "id": "ahsap", "name": "Ahşap" },
+              { "id": "pvc", "name": "PVC" },
+              { "id": "aluminyum", "name": "Alüminyum" }
+            ],
+            "default": "pvc"
+          }
+        ]
+      }
+    },
+    {
+      "id": "glass",
+      "name": "Cam Seçimi",
+      "content": {
+        "fields": [
+          {
+            "id": "glassType",
+            "name": "Cam Tipi",
+            "type": "select",
+            "options": [
+              { "id": "tekli", "name": "Tek Cam" },
+              { "id": "ciftli", "name": "Çift Cam" },
+              { "id": "uclu", "name": "Üçlü Cam" }
+            ],
+            "default": "ciftli"
+          }
+        ]
+      }
+    },
+    {
+      "id": "color",
+      "name": "Renk Seçimi",
+      "content": {
+        "fields": [
+          {
+            "id": "color",
+            "name": "Renk",
+            "type": "select",
+            "options": [
+              { "id": "beyaz", "name": "Beyaz" },
+              { "id": "kahverengi", "name": "Kahverengi", "color": "#7B4B3A" },
+              { "id": "antrasit", "name": "Antrasit" }
+            ],
+            "default": "beyaz"
+          }
+        ]
+      }
+    }
+  ],
+  "sineklik": [
+    {
+      "id": "specifications",
+      "name": "Sineklik Özellikleri",
+      "content": {
+        "fields": [
+          {
+            "id": "sineklikType",
+            "name": "Sineklik Tipi",
+            "type": "select",
+            "options": [
+              { "id": "plise", "name": "Plise" },
+              { "id": "menteseli", "name": "Menteşeli" },
+              { "id": "surme", "name": "Sürme" },
+              { "id": "sabit", "name": "Sabit" }
+            ],
+            "default": "plise"
+          },
+          {
+            "id": "pliseOpeningType",
+            "name": "Açılım Tipi",
+            "type": "select",
+            "options": [
+              {
+                "id": "yatay",
+                "name": "Yatay Plise"
+              },
+              {
+                "id": "dikey",
+                "name": "Dikey Plise"
+              },
+              {
+                "id": "double",
+                "name": "Double Plise"
+              },
+              {
+                "id": "centralPack",
+                "name": "Central Pack"
+              }
+            ],
+            "default": "yatay",
+            "dependsOn": {
+              "field": "sineklikType",
+              "value": "plise"
+            }
+          },
+          {
+            "id": "menteseliOpeningType",
+            "name": "Açılım Tipi",
+            "type": "select",
+            "options": [
+              {
+                "id": "iceAcilim",
+                "name": "İçe Açılım"
+              },
+              {
+                "id": "disaAcilim",
+                "name": "Dışa Açılım"
+              }
+            ],
+            "default": "iceAcilim",
+            "dependsOn": {
+              "field": "sineklikType",
+              "value": "menteseli"
+            }
+          },
+          {
+            "id": "kasaType",
+            "name": "Kasa Tipi",
+            "type": "select",
+            "options": [
+              {
+                "id": "esikli",
+                "name": "Eşikli"
+              },
+              {
+                "id": "esiksiz",
+                "name": "Eşiksiz"
+              }
+            ],
+            "default": "esikli",
+            "dependsOn": {
+              "field": "pliseOpeningType",
+              "value": ["yatay", "double"]
+            }
+          },
+          {
+            "id": "measureType",
+            "name": "Ölçü Şekli̇",
+            "type": "select",
+            "options": [
+              {
+                "id": "outsideToOutside",
+                "name": "Dıştan Dışa (Net Ölçü)"
+              },
+              {
+                "id": "wing",
+                "name": "Kanat Ölçüsü"
+              }
+            ],
+            "default": "outsideToOutside",
+            "dependsOn": {
+              "field": "sineklikType",
+              "value": ["plise", "sabit"]
+            }
+          },
+          {
+            "id": "menteseliMeasureType",
+            "name": "Ölçü Şekli̇",
+            "type": "select",
+            "options": [
+              {
+                "id": "outsideToOutside",
+                "name": "Dıştan Dışa (Net Ölçü)"
+              },
+              {
+                "id": "wing",
+                "name": "Kanat Ölçüsü"
+              },
+              {
+                "id": "gasket",
+                "name": "Contadan Contaya"
+              }
+            ],
+            "default": "outsideToOutside",
+            "dependsOn": {
+              "field": "sineklikType",
+              "value": "menteseli"
+            }
+          },
+          {
+            "id": "menteseliOpeningDirection",
+            "name": "Açılım Yönü",
+            "type": "select",
+            "options": [
+              {
+                "id": "left",
+                "name": "Sol"
+              },
+              {
+                "id": "right",
+                "name": "Sağ"
+              }
+            ],
+            "default": "left",
+            "dependsOn": {
+              "field": "sineklikType",
+              "value": "menteseli"
+            }
+          },
+          {
+            "id": "tulType",
+            "name": "Tül Tipi",
+            "type": "select",
+            "options": [
+              {
+                "id": "normal",
+                "name": "Normal"
+              },
+              {
+                "id": "kedi",
+                "name": "Kedi Tülü"
+              }
+            ],
+            "default": "normal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "dimensions",
+      "name": "Ürün Ölçüleri",
+      "content": {
+        "fields": [
+          {
+            "id": "width",
+            "name": "Genişlik (cm)",
+            "type": "number",
+            "min": 200,
+            "max": 3000,
+            "default": 2000
+          },
+          {
+            "id": "height",
+            "name": "Yükseklik (cm)",
+            "type": "number",
+            "min": 200,
+            "max": 3000,
+            "default": 1000
+          }
+        ],
+        "preview": {
+          "type": "insectScreen",
+          "component": "InsectScreenPreview"
+        }
+      }
+    },
+    {
+      "id": "color",
+      "name": "Renk Seçimi",
+      "content": {
+        "fields": [
+          {
+            "id": "color",
+            "name": "Renk",
+            "type": "select",
+            "options": [
+              {
+                "id": "antrasit_gri",
+                "name": "Antrasit Gri",
+                "color": "#4B4B4B"
+              },
+              {
+                "id": "metalik_gri",
+                "name": "Metalik Gri",
+                "color": "#7D7D7D"
+              },
+              { "id": "beyaz", "name": "Beyaz", "color": "#FFFFFF" },
+              { "id": "kahverengi", "name": "Kahverengi", "color": "#7B4B3A" },
+              { "id": "vizon", "name": "Vizon", "color": "#A89F91" },
+              { "id": "altın_meşe", "name": "Altın Meşe", "color": "#D1B48C" },
+              { "id": "fındık", "name": "Fındık", "color": "#8B5B29" },
+              { "id": "ral", "name": "RAL", "color": "#E6D8C9" }
+            ],
+            "default": "beyaz"
+          },
+          { "id": "description", "name": "Açıklama", "type": "text" }
+        ]
+      }
+    }
+  ],
+  "kapi": [
+    {
+      "id": "dimensions",
+      "name": "Kapı Ölçüleri",
+      "content": {
+        "fields": [
+          {
+            "id": "width",
+            "name": "Genişlik (cm)",
+            "type": "number",
+            "min": 600,
+            "max": 1200,
+            "default": 800
+          },
+          {
+            "id": "height",
+            "name": "Yükseklik (cm)",
+            "type": "number",
+            "min": 1900,
+            "max": 2500,
+            "default": 2100
+          }
+        ],
+        "preview": {
+          "type": "door",
+          "component": "DoorPreview"
+        }
+      }
+    },
+    {
+      "id": "type",
+      "name": "Kapı Tipi",
+      "content": {
+        "fields": [
+          {
+            "id": "doorType",
+            "name": "Kapı Tipi",
+            "type": "radio",
+            "options": [
+              { "id": "ic", "name": "İç Kapı" },
+              { "id": "dis", "name": "Dış Kapı" },
+              { "id": "celik", "name": "Çelik Kapı" }
+            ],
+            "default": "ic"
+          }
+        ]
+      }
+    },
+    {
+      "id": "panel",
+      "name": "Panel Seçimi",
+      "content": {
+        "fields": [
+          {
+            "id": "panelType",
+            "name": "Panel Tipi",
+            "type": "select",
+            "options": [
+              { "id": "duz", "name": "Düz Panel" },
+              { "id": "cizgili", "name": "Çizgili Panel" },
+              { "id": "desenli", "name": "Desenli Panel" }
+            ],
+            "default": "duz"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hardware",
+      "name": "Donanım Seçimi",
+      "content": {
+        "fields": [
+          {
+            "id": "handleType",
+            "name": "Kapı Kolu",
+            "type": "select",
+            "options": [
+              { "id": "standart", "name": "Standart Kol" },
+              { "id": "lux", "name": "Lüks Kol" },
+              { "id": "modern", "name": "Modern Kol" }
+            ],
+            "default": "standart"
+          },
+          {
+            "id": "lockType",
+            "name": "Kilit Sistemi",
+            "type": "select",
+            "options": [
+              { "id": "normal", "name": "Normal Kilit" },
+              { "id": "silindir", "name": "Silindir Kilit" },
+              { "id": "elektronik", "name": "Elektronik Kilit" }
+            ],
+            "default": "normal"
+          }
+        ]
+      }
+    },
+    {
+      "id": "color",
+      "name": "Renk Seçimi",
+      "content": {
+        "fields": [
+          {
+            "id": "color",
+            "name": "Renk",
+            "type": "select",
+            "options": [
+              { "id": "beyaz", "name": "Beyaz" },
+              { "id": "kahverengi", "name": "Kahverengi", "color": "#7B4B3A" },
+              { "id": "siyah", "name": "Siyah" },
+              { "id": "wenge", "name": "Wenge" },
+              { "id": "meşe", "name": "Meşe" }
+            ],
+            "default": "beyaz"
+          }
+        ]
+      }
+    }
+  ]
+}
