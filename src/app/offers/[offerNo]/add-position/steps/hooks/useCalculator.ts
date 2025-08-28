@@ -59,7 +59,7 @@ export const useCalculator = (
       setResult(result);
     } else if (productName === "sineklik") {
       const result = calculateSineklik(
-        values as SineklikSelections,
+        values as unknown as SineklikSelections,
         prices,
         accessories || [],
       );
