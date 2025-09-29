@@ -37,7 +37,7 @@ export function useAccessories(values: PanjurSelections): AccessoryResult {
           setAccessories(result);
         } else if (productId === "sineklik") {
           const result = calculateSineklikAccessories(
-            values as SineklikSelections,
+            values as unknown as SineklikSelections,
             allAccessories,
           );
           setAccessories(result);
