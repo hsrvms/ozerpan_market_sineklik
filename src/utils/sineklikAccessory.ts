@@ -250,7 +250,7 @@ export function getPliseTulAccessoryItems(
         ...tul,
         pricePerPiece: pricePerPiece,
         quantity: quantityPerTul,
-        measurement: measurement,
+        measurement: (measurement / 1000) * 0.03 * quantityPerTul,
       });
     }
   } else {
@@ -258,7 +258,7 @@ export function getPliseTulAccessoryItems(
       ...tul,
       pricePerPiece: pricePerPiece,
       quantity: quantity,
-      measurement: measurement,
+      measurement: (measurement / 1000) * 0.03 * quantity,
     });
   }
 
